@@ -144,5 +144,10 @@ namespace CourseworkApplication
             ClientForm clientForm = new ClientForm();
             clientForm.ShowDialog();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

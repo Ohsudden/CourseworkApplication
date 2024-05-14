@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -94,7 +95,9 @@ namespace CourseworkApplication
             userRoleTextBox.Text = "User Role";
 
             Button submitButton = new Button();
-            submitButton.Text = "Надіслати";
+            submitButton.Text = "Підтвердити";
+            submitButton.Font = new Font("Century Gothic", 12f, FontStyle.Regular);
+            submitButton.Size = new Size(150, 40);
             submitButton.Location = new Point(150, 280);
             submitButton.Click += (btnSender, btnEvent) =>
             {
@@ -173,7 +176,10 @@ namespace CourseworkApplication
             priceTextBox.Text = "Unit Price";
 
             Button submitButton = new Button();
-            submitButton.Text = "Надіслати";
+            submitButton.Text = "Підтвердити";
+            submitButton.Font = new Font("Century Gothic", 12f, FontStyle.Regular);
+            submitButton.Size = new Size(150, 40);
+
             submitButton.Location = new Point(150, 250);
             submitButton.Click += (btnSender, btnEvent) =>
             {
@@ -228,7 +234,9 @@ namespace CourseworkApplication
             productIdTextBox.Text = "Product ID";
 
             Button submitButton = new Button();
-            submitButton.Text = "Submit";
+            submitButton.Text = "Підтвердити";
+            submitButton.Font = new Font("Century Gothic", 12f, FontStyle.Regular);
+            submitButton.Size = new Size(150, 40);
             submitButton.Location = new Point(150, 130);
             submitButton.Click += (btnSender, btnEvent) =>
             {
@@ -308,7 +316,9 @@ namespace CourseworkApplication
             cartIdTextBox.Text = "Cart ID";
 
             Button submitButton = new Button();
-            submitButton.Text = "Submit";
+            submitButton.Text = "Підтвердити";
+            submitButton.Font = new Font("Century Gothic", 12f, FontStyle.Regular);
+            submitButton.Size = new Size(150, 40);
             submitButton.Location = new Point(150, 280);
             submitButton.Click += (btnSender, btnEvent) =>
             {
@@ -375,7 +385,9 @@ namespace CourseworkApplication
             deliveryAddressTextBox.Text = "Delivery Address";
 
             Button submitButton = new Button();
-            submitButton.Text = "Submit";
+            submitButton.Text = "Підтвердити";
+            submitButton.Font = new Font("Century Gothic", 12f, FontStyle.Regular);
+            submitButton.Size = new Size(150, 40);
             submitButton.Location = new Point(150, 190);
             submitButton.Click += (btnSender, btnEvent) =>
             {
@@ -429,7 +441,11 @@ namespace CourseworkApplication
             quantityTextBox.Text = "Quantity";
 
             Button submitButton = new Button();
-            submitButton.Text = "Submit";
+            submitButton.Text = "Підтвердити";
+            submitButton.Font = new Font("Century Gothic", 12f, FontStyle.Regular);
+            submitButton.Size = new Size(150, 40);
+
+
             submitButton.Location = new Point(150, 160);
             submitButton.Click += (btnSender, btnEvent) =>
             {
@@ -499,7 +515,9 @@ namespace CourseworkApplication
             ratingTextBox.Text = "Rating";
 
             Button submitButton = new Button();
-            submitButton.Text = "Submit";
+            submitButton.Text = "Підтвердити";
+            submitButton.Font = new Font("Century Gothic", 12f, FontStyle.Regular);
+            submitButton.Size = new Size(150, 40);
             submitButton.Location = new Point(150, 220);
             submitButton.Click += (btnSender, btnEvent) =>
             {
@@ -553,7 +571,9 @@ namespace CourseworkApplication
             productIdTextBox.Text = "Product ID";
 
             Button submitButton = new Button();
-            submitButton.Text = "Submit";
+            submitButton.Text = "Підтвердити";
+            submitButton.Font = new Font("Century Gothic", 12f, FontStyle.Regular);
+            submitButton.Size = new Size(150, 40);
             submitButton.Location = new Point(150, 130);
             submitButton.Click += (btnSender, btnEvent) =>
             {
@@ -598,7 +618,9 @@ namespace CourseworkApplication
             productIdTextBox.Text = "Product ID";
 
             Button submitButton = new Button();
-            submitButton.Text = "Submit";
+            submitButton.Text = "Підтвердити";
+            submitButton.Font = new Font("Century Gothic", 12f, FontStyle.Regular);
+            submitButton.Size = new Size(150, 40);
             submitButton.Location = new Point(150, 130);
             submitButton.Click += (btnSender, btnEvent) =>
             {
@@ -649,6 +671,27 @@ namespace CourseworkApplication
         {
             return new NpgsqlConnection("Server=localhost;Port=5432;Database=Online store;User Id=postgres;Password=admin;");
         }
+        private DataTable ExecuteQuery(NpgsqlConnection connection, string query)
+        {
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, connection))
+                {
+                    using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Помилка при виконанні запита: {ex.Message}");
+            }
+
+            return dataTable;
+        }
 
         private void ClientForm_Load(object sender, EventArgs e)
         {
@@ -656,6 +699,119 @@ namespace CourseworkApplication
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+        public void connectAndExecute(string query)
+        {
+            using (NpgsqlConnection con = GetConnection())
+            {
+                con.Open();
+
+                if (con.State == ConnectionState.Open)
+                {
+                    DataTable dataTable = ExecuteQuery(con, query);
+                    Form2 resultForm = new Form2(dataTable);
+                    resultForm.ShowDialog();
+
+                }
+            }
+        }
+
+        private void customerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT* FROM Customer";
+
+            connectAndExecute(query);
+        }
+
+        private void productToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT* FROM Product";
+
+            connectAndExecute(query);
+        }
+
+        private void shoppingCartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT* FROM ShoppingCart";
+
+            connectAndExecute(query);
+        }
+
+        private void orderTableToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT* FROM OrderTable";
+
+            connectAndExecute(query);
+        }
+
+        private void deliveryAddressToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT* FROM DeliveryAddress";
+
+            connectAndExecute(query);
+        }
+
+        private void cartContentsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT* FROM CartContents";
+
+            connectAndExecute(query);
+        }
+
+        private void productReviewToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT* FROM ProductReview";
+
+            connectAndExecute(query);
+        }
+
+        private void productWithReviewToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT* FROM ProductWithReview";
+
+            connectAndExecute(query);
+        }
+
+        private void productQuantityToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT* FROM ProductQuantity";
+
+            connectAndExecute(query);
+        }
+
+        private void sellerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT* FROM Seller";
+
+            connectAndExecute(query);
+        }
+
+        private void sellerProductToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT* FROM SellerProduct";
+
+            connectAndExecute(query);
+        }
+
+        private void findTop3ByRating(object sender, EventArgs e)
+        {
+            string query = "SELECT Product.Product_Name, Product.Product_Category, AVG(ProductReview.Rating) AS Average_Rating\r\nFROM Product\r\nJOIN ProductWithReview ON Product.Product_ID = ProductWithReview.Product_ID\r\nJOIN ProductReview ON ProductReview.Review_ID = ProductWithReview.Review_ID\r\nGROUP BY Product.Product_Name, Product.Product_Category\r\nORDER BY Average_Rating DESC\r\nLIMIT 3;";
+            connectAndExecute(query);
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
         {
 
         }
