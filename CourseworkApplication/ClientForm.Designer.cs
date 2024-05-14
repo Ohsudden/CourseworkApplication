@@ -60,6 +60,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.SubmitNew = new System.Windows.Forms.Button();
+            this.customerNameBox = new System.Windows.Forms.TextBox();
+            this.phoneNumber = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -168,77 +173,77 @@
             // customerToolStripMenuItem1
             // 
             this.customerToolStripMenuItem1.Name = "customerToolStripMenuItem1";
-            this.customerToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.customerToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
             this.customerToolStripMenuItem1.Text = "Customer";
             this.customerToolStripMenuItem1.Click += new System.EventHandler(this.customerToolStripMenuItem1_Click);
             // 
             // productToolStripMenuItem1
             // 
             this.productToolStripMenuItem1.Name = "productToolStripMenuItem1";
-            this.productToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.productToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
             this.productToolStripMenuItem1.Text = "Product";
             this.productToolStripMenuItem1.Click += new System.EventHandler(this.productToolStripMenuItem1_Click);
             // 
             // shoppingCartToolStripMenuItem
             // 
             this.shoppingCartToolStripMenuItem.Name = "shoppingCartToolStripMenuItem";
-            this.shoppingCartToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.shoppingCartToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.shoppingCartToolStripMenuItem.Text = "ShoppingCart";
             this.shoppingCartToolStripMenuItem.Click += new System.EventHandler(this.shoppingCartToolStripMenuItem_Click);
             // 
             // orderTableToolStripMenuItem1
             // 
             this.orderTableToolStripMenuItem1.Name = "orderTableToolStripMenuItem1";
-            this.orderTableToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.orderTableToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
             this.orderTableToolStripMenuItem1.Text = "OrderTable";
             this.orderTableToolStripMenuItem1.Click += new System.EventHandler(this.orderTableToolStripMenuItem1_Click);
             // 
             // deliveryAddressToolStripMenuItem1
             // 
             this.deliveryAddressToolStripMenuItem1.Name = "deliveryAddressToolStripMenuItem1";
-            this.deliveryAddressToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.deliveryAddressToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
             this.deliveryAddressToolStripMenuItem1.Text = "DeliveryAddress";
             this.deliveryAddressToolStripMenuItem1.Click += new System.EventHandler(this.deliveryAddressToolStripMenuItem1_Click);
             // 
             // cartContentsToolStripMenuItem1
             // 
             this.cartContentsToolStripMenuItem1.Name = "cartContentsToolStripMenuItem1";
-            this.cartContentsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.cartContentsToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
             this.cartContentsToolStripMenuItem1.Text = "CartContents";
             this.cartContentsToolStripMenuItem1.Click += new System.EventHandler(this.cartContentsToolStripMenuItem1_Click);
             // 
             // productReviewToolStripMenuItem1
             // 
             this.productReviewToolStripMenuItem1.Name = "productReviewToolStripMenuItem1";
-            this.productReviewToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.productReviewToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
             this.productReviewToolStripMenuItem1.Text = "ProductReview";
             this.productReviewToolStripMenuItem1.Click += new System.EventHandler(this.productReviewToolStripMenuItem1_Click);
             // 
             // productWithReviewToolStripMenuItem1
             // 
             this.productWithReviewToolStripMenuItem1.Name = "productWithReviewToolStripMenuItem1";
-            this.productWithReviewToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.productWithReviewToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
             this.productWithReviewToolStripMenuItem1.Text = "ProductWithReview";
             this.productWithReviewToolStripMenuItem1.Click += new System.EventHandler(this.productWithReviewToolStripMenuItem1_Click);
             // 
             // productQuantityToolStripMenuItem
             // 
             this.productQuantityToolStripMenuItem.Name = "productQuantityToolStripMenuItem";
-            this.productQuantityToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.productQuantityToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.productQuantityToolStripMenuItem.Text = "ProductQuantity";
             this.productQuantityToolStripMenuItem.Click += new System.EventHandler(this.productQuantityToolStripMenuItem_Click);
             // 
             // sellerToolStripMenuItem1
             // 
             this.sellerToolStripMenuItem1.Name = "sellerToolStripMenuItem1";
-            this.sellerToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.sellerToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
             this.sellerToolStripMenuItem1.Text = "Seller";
             this.sellerToolStripMenuItem1.Click += new System.EventHandler(this.sellerToolStripMenuItem1_Click);
             // 
             // sellerProductToolStripMenuItem1
             // 
             this.sellerProductToolStripMenuItem1.Name = "sellerProductToolStripMenuItem1";
-            this.sellerProductToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.sellerProductToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
             this.sellerProductToolStripMenuItem1.Text = "SellerProduct";
             this.sellerProductToolStripMenuItem1.Click += new System.EventHandler(this.sellerProductToolStripMenuItem1_Click);
             // 
@@ -321,11 +326,67 @@
             this.panel7.Size = new System.Drawing.Size(1, 398);
             this.panel7.TabIndex = 7;
             // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button4.Location = new System.Drawing.Point(562, 141);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(337, 42);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "Частота методів оплати";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.findByPaymentMethod);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(559, 200);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(328, 24);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Видалити за ID та телефоном";
+            // 
+            // SubmitNew
+            // 
+            this.SubmitNew.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SubmitNew.Location = new System.Drawing.Point(646, 327);
+            this.SubmitNew.Name = "SubmitNew";
+            this.SubmitNew.Size = new System.Drawing.Size(159, 42);
+            this.SubmitNew.TabIndex = 10;
+            this.SubmitNew.Text = "Підтвердити";
+            this.SubmitNew.UseVisualStyleBackColor = true;
+            this.SubmitNew.Click += new System.EventHandler(this.SubmitNew_Click);
+            // 
+            // customerNameBox
+            // 
+            this.customerNameBox.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.customerNameBox.Location = new System.Drawing.Point(562, 238);
+            this.customerNameBox.Name = "customerNameBox";
+            this.customerNameBox.Size = new System.Drawing.Size(117, 33);
+            this.customerNameBox.TabIndex = 11;
+            this.customerNameBox.Text = "ПІБ";
+            // 
+            // phoneNumber
+            // 
+            this.phoneNumber.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.phoneNumber.Location = new System.Drawing.Point(562, 277);
+            this.phoneNumber.Name = "phoneNumber";
+            this.phoneNumber.Size = new System.Drawing.Size(207, 33);
+            this.phoneNumber.TabIndex = 12;
+            this.phoneNumber.Text = "Номер телефону";
+            this.phoneNumber.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 586);
+            this.Controls.Add(this.phoneNumber);
+            this.Controls.Add(this.customerNameBox);
+            this.Controls.Add(this.SubmitNew);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -377,5 +438,10 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button SubmitNew;
+        private System.Windows.Forms.TextBox phoneNumber;
+        private System.Windows.Forms.TextBox customerNameBox;
     }
 }

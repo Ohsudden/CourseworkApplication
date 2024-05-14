@@ -34,7 +34,7 @@ namespace CourseworkApplication
             if (activeButton != null)
             {
                 this.Controls.Remove(activeButton);
-                activeButton.Dispose(); 
+                activeButton.Dispose();
                 activeButton = null;
             }
         }
@@ -124,7 +124,7 @@ namespace CourseworkApplication
             };
 
             this.Controls.Add(submitButton);
-            activeButton = submitButton; 
+            activeButton = submitButton;
         }
 
         private void productToolStripMenuItem_Click(object sender, EventArgs e)
@@ -210,7 +210,7 @@ namespace CourseworkApplication
             };
 
             this.Controls.Add(submitButton);
-            activeButton = submitButton; 
+            activeButton = submitButton;
         }
 
         private void productWithReviewToolStripMenuItem_Click(object sender, EventArgs e)
@@ -257,7 +257,7 @@ namespace CourseworkApplication
             };
 
             this.Controls.Add(submitButton);
-            activeButton = submitButton; 
+            activeButton = submitButton;
         }
 
         private void orderTableToolStripMenuItem_Click(object sender, EventArgs e)
@@ -344,7 +344,7 @@ namespace CourseworkApplication
             };
 
             this.Controls.Add(submitButton);
-            activeButton = submitButton; 
+            activeButton = submitButton;
         }
 
 
@@ -410,7 +410,7 @@ namespace CourseworkApplication
             };
 
             this.Controls.Add(submitButton);
-            activeButton = submitButton; 
+            activeButton = submitButton;
         }
 
         private void cartContentsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -449,7 +449,7 @@ namespace CourseworkApplication
             submitButton.Location = new Point(150, 160);
             submitButton.Click += (btnSender, btnEvent) =>
             {
-               
+
                 string productId = productIdTextBox.Text;
                 string cartId = cartIdTextBox.Text;
                 string quantity = quantityTextBox.Text;
@@ -469,7 +469,7 @@ namespace CourseworkApplication
             };
 
             this.Controls.Add(submitButton);
-            activeButton = submitButton; 
+            activeButton = submitButton;
         }
 
 
@@ -546,7 +546,7 @@ namespace CourseworkApplication
             };
 
             this.Controls.Add(submitButton);
-            activeButton = submitButton; 
+            activeButton = submitButton;
         }
 
 
@@ -594,7 +594,7 @@ namespace CourseworkApplication
             };
 
             this.Controls.Add(submitButton);
-            activeButton = submitButton; 
+            activeButton = submitButton;
         }
 
         private void sellerProductToolStripMenuItem_Click(object sender, EventArgs e)
@@ -638,12 +638,12 @@ namespace CourseworkApplication
                         ExecuteChangingQuery(con, query);
                     }
                 }
-                
+
 
             };
 
             this.Controls.Add(submitButton);
-            activeButton = submitButton; 
+            activeButton = submitButton;
         }
 
         private void ExecuteChangingQuery(NpgsqlConnection connection, string query)
@@ -805,6 +805,11 @@ namespace CourseworkApplication
             string query = "SELECT Product.Product_Name, Product.Product_Category, AVG(ProductReview.Rating) AS Average_Rating\r\nFROM Product\r\nJOIN ProductWithReview ON Product.Product_ID = ProductWithReview.Product_ID\r\nJOIN ProductReview ON ProductReview.Review_ID = ProductWithReview.Review_ID\r\nGROUP BY Product.Product_Name, Product.Product_Category\r\nORDER BY Average_Rating DESC\r\nLIMIT 3;";
             connectAndExecute(query);
         }
+        private void findByPaymentMethod(object sender, EventArgs e)
+        {
+            string query = "SELECT OrderTable.Payment_Method, COUNT(*) AS Frequency\r\nFROM OrderTable\r\nGROUP BY OrderTable.Payment_Method\r\nORDER BY Frequency DESC\r\n;";
+            connectAndExecute(query);
+        }
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
@@ -815,5 +820,31 @@ namespace CourseworkApplication
         {
 
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void SubmitNew_Click(object sender, EventArgs e)
+        {
+            string customerName = customerNameBox.Text;
+            string telephoneNumber = phoneNumber.Text;
+
+            string query = $"DELETE FROM Customer WHERE Phone_Number = '{telephoneNumber}' AND Full_Name = '{customerName}'";
+
+            using (NpgsqlConnection con = GetConnection())
+            {
+                con.Open();
+
+                if (con.State == ConnectionState.Open)
+                {
+                    ExecuteChangingQuery(con, query);
+                }
+            }
+        }
+
+
+
+    
     }
 }
