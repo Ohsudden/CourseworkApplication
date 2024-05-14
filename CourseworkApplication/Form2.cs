@@ -40,7 +40,10 @@ namespace CourseworkApplication
             {
                 row.Height = rowHeight;
             }
+            dataGridViewResults.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridViewResults.ColumnHeadersDefaultCellStyle.Font.FontFamily, 16);
+            dataGridViewResults.DefaultCellStyle.Font = new Font(dataGridViewResults.DefaultCellStyle.Font.FontFamily, 16);
         }
+
 
         private void dataGridViewResults_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
