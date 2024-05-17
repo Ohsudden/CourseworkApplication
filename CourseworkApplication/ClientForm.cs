@@ -101,7 +101,6 @@ namespace CourseworkApplication
             submitButton.Location = new Point(150, 280);
             submitButton.Click += (btnSender, btnEvent) =>
             {
-                // Retrieve values from TextBoxes
                 string customerId = idTextBox.Text;
                 string fullName = fullNameTextBox.Text;
                 string email = emailTextBox.Text;
@@ -183,7 +182,6 @@ namespace CourseworkApplication
             submitButton.Location = new Point(150, 250);
             submitButton.Click += (btnSender, btnEvent) =>
             {
-                // Retrieve values from TextBoxes
                 string productId = idTextBox.Text;
                 string productName = nameTextBox.Text;
                 string productCategory = categoryTextBox.Text;
@@ -802,7 +800,7 @@ namespace CourseworkApplication
 
         private void findTop3ByRating(object sender, EventArgs e)
         {
-            string query = "SELECT Product.Product_Name, Product.Product_Category, AVG(ProductReview.Rating) AS Average_Rating\r\nFROM Product\r\nJOIN ProductWithReview ON Product.Product_ID = ProductWithReview.Product_ID\r\nJOIN ProductReview ON ProductReview.Review_ID = ProductWithReview.Review_ID\r\nGROUP BY Product.Product_Name, Product.Product_Category\r\nORDER BY Average_Rating DESC\r\nLIMIT 3;";
+            string query = "SELECT Product.Product_Name, Product.Product_Category, ROUND(AVG(ProductReview.Rating), 2) AS Average_Rating\r\nFROM Product\r\nJOIN ProductWithReview ON Product.Product_ID = ProductWithReview.Product_ID\r\nJOIN ProductReview ON ProductReview.Review_ID = ProductWithReview.Review_ID\r\nGROUP BY Product.Product_Name, Product.Product_Category\r\nORDER BY Average_Rating DESC\r\nLIMIT 3;";
             connectAndExecute(query);
         }
         private void findByPaymentMethod(object sender, EventArgs e)
@@ -844,7 +842,5 @@ namespace CourseworkApplication
         }
 
 
-
-    
     }
 }
